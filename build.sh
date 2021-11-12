@@ -2,7 +2,7 @@ WORKROOT=$(pwd)
 export GOPATH=${WORKROOT}
 
 # try to download bce-sdk-go from github
-go env -w GO111MODULE=on
+go env -w GO111MODULE=auto
 if [ $? -ne 0 ]
 then
     echo "fail to set env GO111MODULE"
@@ -17,7 +17,7 @@ chmod +w pkg -R 2>&1 > /dev/null
 rm -rf pkg/mod/github.com/baidubce/bce-sdk-go* 
 rm -rf ./src/github.com/baidubce/bce-sdk-go
 
-go get -d github.com/baidubce/bce-sdk-go@1a69080
+go get -d github.com/baidubce/bce-sdk-go
 if [ $? -ne 0 ]
 then
     echo "fail to get bce-sdk-go"
